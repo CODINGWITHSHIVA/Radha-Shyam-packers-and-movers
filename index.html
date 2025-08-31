@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickMove Packers & Movers</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1621494933108-99580db9342f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+        
+        .service-card {
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            font-size: 80px;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: #f3f4f6;
+            z-index: 0;
+        }
+        
+        .quote-form {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+        
+        .tracking-banner {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 20px;
+        }
+        
+        .moving-counter {
+            background: #10b981;
+            color: white;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0 auto;
+        }
+        
+        .step-card {
+            text-align: center;
+            padding: 20px;
+            border-radius: 12px;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .step-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .city-bg {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1519501025264-65ba15a82390?ixlib=rb-4.0.3&auto=format&fit=crop&w=2064&q=80');
+            background-size: cover;
+            background-position: center;
+            border-radius: 12px;
+            padding: 40px;
+            color: white;
+        }
+        
+        .admin-panel {
+            background: #1f2937;
+            color: white;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .dashboard-card {
+            background: #374151;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="fixed w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <div class="bg-blue-600 text-white p-2 rounded-lg mr-3">
+                        <i class="fas fa-truck-moving text-2xl"></i>
+                    </div>
+                    <h1 class="text-2xl font-bold text-blue-600">QuickMove</h1>
+                </div>
+                
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-blue-600 font-medium">Home</a>
+                    <a href="#services" class="text-gray-700 hover:text-blue-600 font-medium">Services</a>
+                    <a href="#about" class="text-gray-700 hover:text-blue-600 font-medium">About Us</a>
+                    <a href="#tracking" class="text-gray-700 hover:text-blue-600 font-medium">Tracking</a>
+                    <a href="#contact" class="text-gray-700 hover:text-blue-600 font-medium">Contact</a>
+                </nav>
+                
+                <div class="flex items-center space-x-4">
+                    <button onclick="showLoginModal()" class="bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700">
+                        <i class="fas fa-user mr-2"></i>Login
+                    </button>
+                    <button class="md:hidden text-gray-700">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg pt-20">
+        <div class="container mx-auto px-4">
+            <div class="max-w-2xl text-white">
+                <h2 class="text-5xl font-bold mb-4">Stress-Free Moving Solutions</h2>
+                <p class="text-xl mb-8">Professional packers and movers with 10+ years of experience. We make relocation easy and hassle-free.</p>
+                <div class="flex space-x-4">
+                    <button onclick="showQuoteModal()" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700">
+                        Get Free Quote
+                    </button>
+                    <button onclick="showTrackingModal()" class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100">
+                        Track Your Move
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Our Services</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">We offer comprehensive packing and moving services to make your relocation experience seamless and stress-free.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="service-card bg-gray-50 p-6 text-center">
+                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-home text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2">Residential Moving</h3>
+                    <p class="text-gray-600">Complete home relocation services with careful handling of your belongings.</p>
+                    <button onclick="showServiceModal('Residential Moving')" class="mt-4 text-blue-600 font-medium">Learn More</button>
+                </div>
+                
+                <div class="service-card bg-gray-50 p-6 text-center">
+                    <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-building text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2">Commercial Moving</h3>
+                    <p class="text-gray-600">Efficient office relocation with minimal disruption to your business operations.</p>
+                    <button onclick="showServiceModal('Commercial Moving')" class="mt-4 text-blue-600 font-medium">Learn More</button>
+                </div>
+                
+                <div class="service-card bg-gray-50 p-6 text-center">
+                    <div class="bg-yellow-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-boxes text-yellow-600 text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2">Packing Services</h3>
+                    <p class="text-gray-600">Professional packing using high-quality materials to ensure item safety.</p>
+                    <button onclick="showServiceModal('Packing Services')" class="mt-4 text-blue-600 font-medium">Learn More</button>
+                </div>
+                
+                <div class="service-card bg-gray-50 p-6 text-center">
+                    <div class="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-warehouse text-red-600 text-2xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2">Storage Solutions</h3>
+                    <p class="text-gray-600">Secure and affordable storage options for short or long-term needs.</p>
+                    <button onclick="showServiceModal('Storage Solutions')" class="mt-4 text-blue-600 font-medium">Learn More</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">How It Works</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Our simple 4-step process ensures a smooth and organized moving experience.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="step-card">
+                    <div class="moving-counter">1</div>
+                    <h3 class="font-semibold text-lg mt-4 mb-2">Get a Quote</h3>
+                    <p class="text-gray-600">Request a free quote online or via phone for your moving needs.</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="moving-counter">2</div>
+                    <h3 class="font-semibold text-lg mt-4 mb-2">Schedule</h3>
+                    <p class="text-gray-600">Choose a convenient date and time for your move.</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="moving-counter">3</div>
+                    <h3 class="font-semibold text-lg mt-4 mb-2">We Pack & Move</h3>
+                    <p class="text-gray-600">Our team carefully packs and transports your belongings.</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="moving-counter">4</div>
+                    <h3 class="font-semibold text-lg mt-4 mb-2">Delivery</h3>
+                    <p class="text-gray-600">We deliver and unpack at your new location safely.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tracking Section -->
+    <section id="tracking" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="tracking-banner text-center">
+                <h2 class="text-2xl font-bold mb-4">Track Your Move</h2>
+                <p class="mb-6">Enter your tracking number to check the status of your move</p>
+                <div class="max-w-md mx-auto flex">
+                    <input type="text" placeholder="Enter tracking number" class="flex-1 px-4 py-3 rounded-l-lg focus:outline-none text-gray-800">
+                    <button class="bg-yellow-500 px-6 py-3 rounded-r-lg font-semibold">Track</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section id="contact" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="quote-form">
+                    <h2 class="text-2xl font-bold text-center mb-6">Get a Free Quote</h2>
+                    <form id="quoteForm" class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-gray-700 mb-2">Full Name</label>
+                            <input type="text" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 mb-2">Phone Number</label>
+                            <input type="tel" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 mb-2">Moving From</label>
+                            <input type="text" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 mb-2">Moving To</label>
+                            <input type="text" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 mb-2">Move Date</label>
+                            <input type="date" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 mb-2">Home Size</label>
+                            <select class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                                <option value="">Select Size</option>
+                                <option value="1bhk">1 BHK</option>
+                                <option value="2bhk">2 BHK</option>
+                                <option value="3bhk">3 BHK</option>
+                                <option value="4bhk">4 BHK</option>
+                                <option value="villa">Villa</option>
+                            </select>
+                        </div>
+                        <div class="md:col-span-2">
+                            <label class="block text-gray-700 mb-2">Additional Notes</label>
+                            <textarea class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" rows="3"></textarea>
+                        </div>
+                        <div class="md:col-span-2 text-center">
+                            <button type="submit" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700">Get Quote</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admin Panel (Hidden by default) -->
+    <section id="admin-panel" class="admin-panel hidden">
+        <div class="container mx-auto">
+            <h2 class="text-2xl font-bold mb-6">Admin Dashboard</h2>
+            
+            <div class="grid md:grid-cols-3 gap-6 mb-8">
+                <div class="dashboard-card">
+                    <h3 class="text-xl font-semibold mb-2">Total Quotes</h3>
+                    <p class="text-3xl font-bold" id="total-quotes">0</p>
+                </div>
+                
+                <div class="dashboard-card">
+                    <h3 class="text-xl font-semibold mb-2">Pending Moves</h3>
+                    <p class="text-3xl font-bold" id="pending-moves">0</p>
+                </div>
+                
+                <div class="dashboard-card">
+                    <h3 class="text-xl font-semibold mb-2">Completed Moves</h3>
+                    <p class="text-3xl font-bold" id="completed-moves">0</p>
+                </div>
+            </div>
+            
+            <div class="dashboard-card">
+                <h3 class="text-xl font-semibold mb-4">Recent Quotes</h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left">
+                        <thead>
+                            <tr class="border-b">
+                                <th class="pb-2">Name</th>
+                                <th class="pb-2">From</th>
+                                <th class="pb-2">To</th>
+                                <th class="pb-2">Date</th>
+                                <th class="pb-2">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="quotes-table">
+                            <!-- Quotes will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">QuickMove</h3>
+                    <p class="text-gray-400">Professional packers and movers with a commitment to excellence and customer satisfaction.</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white">Services</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Residential Moving</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Commercial Moving</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Packing Services</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Storage Solutions</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Contact Info</h4>
+                    <div class="space-y-2 text-gray-400">
+                        <p><i class="fas fa-phone-alt mr-2"></i>7518155389</p>
+                        <p><i class="fas fa-envelope mr-2"></i> shubh75181@gmail.com</p>
+                        <p><i class="fas fa-map-marker-alt mr-2"></i> Street no.7 Sheetla colony Ashok vihar phase 3 Gurugram, NCR 122001</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 QuickMove Packers & Movers. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal System -->
+    <div id="modal-overlay" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg p-6 w-11/12 md:w-2/3 lg:w-1/2 max-h-90vh overflow-y-auto">
+            <div class="flex justify-between items-center mb-4">
+                <h3 id="modal-title" class="text-xl font-bold"></h3>
+                <button onclick="closeModal()" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div id="modal-content"></div>
+        </div>
+    </div>
+    <!-- Firebase & JS Integration -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+<script>
+  // 🔹 Firebase Config - replace karo apne project ke sath
+  const firebaseConfig = {
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_AUTH_DOMAIN",
+    projectId: "YOUR_PROJECT_ID",
+    storageBucket: "YOUR_STORAGE_BUCKET",
+    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+    appId: "YOUR_APP_ID"
+  };
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+  const db = firebase.firestore();
+
+  let currentAdmin = null;
+
+  function initApp() {
+    checkAdminState();
+    loadRecentQuotes();
+  }
+
+  // 🔹 Admin login modal
+  function showLoginModal() {
+    document.getElementById('modal-title').textContent = 'Admin Login';
+    document.getElementById('modal-content').innerHTML = `
+      <form id="login-form" class="space-y-4">
+        <div>
+          <label class="block text-gray-700 mb-2">Email</label>
+          <input type="email" class="w-full px-4 py-2 border rounded-lg" required>
+        </div>
+        <div>
+          <label class="block text-gray-700 mb-2">Password</label>
+          <input type="password" class="w-full px-4 py-2 border rounded-lg" required>
+        </div>
+        <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg">Login</button>
+        <button id="google-signin" type="button" class="w-full mt-2 bg-red-500 text-white py-2 rounded-lg">Login with Google</button>
+      </form>
+    `;
+
+    document.getElementById('login-form').addEventListener('submit', async function(e){
+      e.preventDefault();
+      const email = this.elements[0].value;
+      const password = this.elements[1].value;
+      try{
+        await auth.signInWithEmailAndPassword(email, password);
+        currentAdmin = email;
+        document.getElementById('admin-panel').classList.remove('hidden');
+        document.querySelector('main').classList.add('hidden');
+        document.querySelector('footer').classList.add('hidden');
+        closeModal();
+      } catch(error){
+        alert(error.message);
+      }
+    });
+
+    document.getElementById('google-signin').addEventListener('click', async function(){
+      const provider = new firebase.auth.GoogleAuthProvider();
+      try{
+        const result = await auth.signInWithPopup(provider);
+        currentAdmin = result.user.email;
+        document.getElementById('admin-panel').classList.remove('hidden');
+        document.querySelector('main').classList.add('hidden');
+        document.querySelector('footer').classList.add('hidden');
+        closeModal();
+      } catch(error){
+        alert(error.message);
+      }
+    });
+
+    document.getElementById('modal-overlay').classList.remove('hidden');
+  }
+
+  function closeModal(){
+    document.getElementById('modal-overlay').classList.add('hidden');
+  }
+
+  function checkAdminState(){
+    auth.onAuthStateChanged(user=>{
+      if(user){
+        currentAdmin = user.email;
+        document.getElementById('admin-panel').classList.remove('hidden');
+        document.querySelector('main').classList.add('hidden');
+        document.querySelector('footer').classList.add('hidden');
+        loadRecentQuotes();
+      }
+    });
+  }
+
+  // 🔹 Quote form submission
+  document.getElementById('quoteForm').addEventListener('submit', async function(e){
+    e.preventDefault();
+    const formData = {
+      name: this.elements[0].value,
+      phone: this.elements[1].value,
+      from: this.elements[2].value,
+      to: this.elements[3].value,
+      date: this.elements[4].value,
+      size: this.elements[5].value,
+      notes: this.elements[6].value,
+      status: 'Pending',
+      dateSubmitted: new Date().toISOString()
+    };
+
+    try{
+      // Save in Firestore
+      const docRef = await db.collection('quotes').add(formData);
+      alert('Thank you! Your quote request has been submitted.');
+      this.reset();
+      loadRecentQuotes();
+
+      // 🔹 Call Cloud Function to send email
+      const cloudFunctionURL = "YOUR_CLOUD_FUNCTION_URL"; // Replace with your deployed function URL
+      await fetch(cloudFunctionURL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData)
+      });
+
+    } catch(error){
+      alert(error.message);
+    }
+  });
+
+  // 🔹 Load recent quotes in admin panel
+  async function loadRecentQuotes(){
+    const tableBody = document.getElementById('quotes-table');
+    tableBody.innerHTML = '';
+    try{
+      const snapshot = await db.collection('quotes').orderBy('dateSubmitted','desc').limit(5).get();
+      let total = 0, pending=0, completed=0;
+      snapshot.forEach(doc=>{
+        const quote = doc.data();
+        total++;
+        if(quote.status==='Pending') pending++;
+        if(quote.status==='Completed') completed++;
+        const row = document.createElement('tr');
+        row.className='border-b';
+        row.innerHTML=`
+          <td class="py-2">${quote.name}</td>
+          <td class="py-2">${quote.from}</td>
+          <td class="py-2">${quote.to}</td>
+          <td class="py-2">${new Date(quote.date).toLocaleDateString()}</td>
+          <td class="py-2"><span class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs">${quote.status}</span></td>
+        `;
+        tableBody.appendChild(row);
+      });
+      document.getElementById('total-quotes').textContent=total;
+      document.getElementById('pending-moves').textContent=pending;
+      document.getElementById('completed-moves').textContent=completed;
+    } catch(error){
+      console.log(error.message);
+    }
+  }
+
+  document.getElementById('modal-overlay').addEventListener('click', e=>{
+    if(e.target===this) closeModal();
+  });
+
+  document.addEventListener('DOMContentLoaded', initApp);
+</script>
+
+    
+</body>
+</html>
