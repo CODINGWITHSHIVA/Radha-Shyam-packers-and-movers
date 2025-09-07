@@ -424,10 +424,8 @@
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
 
-<script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-analytics.js";
+<script>
+  
   // 🔹 Firebase Config - replace karo apne project ke sath
   const firebaseConfig = {
     apiKey: "AIzaSyAsKHSS_x64ubTnUrlAZ-Kn_f7ploNC1b4",
@@ -438,8 +436,8 @@
     appId: "1:887590230256:web:6aa90b46aa4b1c8c2a8a35",
     measurementId: "G-QPXL0G9YYP"
   };
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
+  const db = firebase.firestore();
+  const auth = firebase.auth();
   let currentAdmin = null;
 
   function initApp() {
